@@ -1,27 +1,29 @@
+use std::fmt;
 use std::ops;
 
+// Vector3 Type
 #[derive(Debug, Clone, Copy, PartialEq)]
-struct Vector3 {
-    x: f32,
-    y: f32,
-    z: f32,
+pub struct Vector3 {
+    pub x: f32,
+    pub y: f32,
+    pub z: f32,
 }
 
 impl Vector3 {
-    fn new(x: f32, y: f32, z: f32) -> Self {
+    pub fn new(x: f32, y: f32, z: f32) -> Self {
         Vector3 { x, y, z }
     }
 
     // Implementing vector-specific operations
-    fn magnitude(&self) -> f32 {
+    pub fn magnitude(&self) -> f32 {
         (self.x.powi(2) + self.y.powi(2) + self.z.powi(2)).sqrt()
     }
 
-    fn dot(&self, other: &Self) -> f32 {
+    pub fn dot(&self, other: &Self) -> f32 {
         self.x * other.x + self.y * other.y + self.z * other.z
     }
 
-    fn cross(&self, other: &Self) -> Self {
+    pub fn cross(&self, other: &Self) -> Self {
         Self::new(
             self.y * other.z - self.z * other.y,
             self.z * other.x - self.x * other.z,
@@ -29,7 +31,7 @@ impl Vector3 {
         )
     }
 
-    fn normalized(&self) -> Self {
+    pub fn normalized(&self) -> Self {
         let mag: f32 = self.magnitude();
         Self::new(self.x / mag, self.y / mag, self.z / mag)
     }
@@ -179,4 +181,52 @@ impl ops::Neg for &Vector3 {
     fn neg(self) -> Self::Output {
         Vector3::new(-self.x, -self.y, -self.z)
     }
+}
+
+// To String
+impl fmt::Display for Vector3 {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "[{}, {}, {}]", self.x, self.y, self.z)
+    }
+}
+
+// Ray Type
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct Ray {
+    pub origin: Vector3,
+    pub direction: Vector3,
+}
+
+impl Ray {
+    pub fn new(origin: Vector3, direction: Vector3) -> Self {
+        Ray {
+            origin,
+            direction: direction.normalized(),
+        }
+    }
+}
+
+// To String
+impl fmt::Display for Ray {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{} + t * {}", self.origin, self.direction)
+    }
+}
+
+// RayHit Type
+#[derive(Debug, Clone, Copy, PartialEq)]
+pub struct RayHit {
+    pub did_hit: bool,
+    pub point: Vector3,
+    // pub target: Visible_Object // TODO : Implement this type and import it here.
+}
+
+impl RayHit {
+    // pub fn new(target: VisibleObject, point: Vector3) -> Self {
+    //     RayHit { did_hit: true, point, target }
+    // }
+
+    // pub fn new_miss(target: VisibleObject) -> Self {
+    //     RayHit { did_hit: false, point: Vector3::new(0.0, 0.0, 0.0), target }
+    // }
 }
