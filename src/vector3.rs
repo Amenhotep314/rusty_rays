@@ -38,7 +38,7 @@ impl Vector3 {
 }
 
 // Addition
-macro_rules! impl_add_Vector3 {
+macro_rules! implement_add_vector3 {
     ($left:ty, $right:ty) => {
         impl ops::Add<$right> for $left {
             type Output = Vector3;
@@ -50,13 +50,13 @@ macro_rules! impl_add_Vector3 {
     };
 }
 
-impl_add_Vector3!(Vector3, Vector3);
-impl_add_Vector3!(&Vector3, Vector3);
-impl_add_Vector3!(Vector3, &Vector3);
-impl_add_Vector3!(&Vector3, &Vector3);
+implement_add_vector3!(Vector3, Vector3);
+implement_add_vector3!(&Vector3, Vector3);
+implement_add_vector3!(Vector3, &Vector3);
+implement_add_vector3!(&Vector3, &Vector3);
 
 // Subtraction
-macro_rules! impl_sub_Vector3 {
+macro_rules! impl_sub_vector3 {
     ($left:ty, $right:ty) => {
         impl ops::Sub<$right> for $left {
             type Output = Vector3;
@@ -68,13 +68,13 @@ macro_rules! impl_sub_Vector3 {
     };
 }
 
-impl_sub_Vector3!(Vector3, Vector3);
-impl_sub_Vector3!(&Vector3, Vector3);
-impl_sub_Vector3!(Vector3, &Vector3);
-impl_sub_Vector3!(&Vector3, &Vector3);
+impl_sub_vector3!(Vector3, Vector3);
+impl_sub_vector3!(&Vector3, Vector3);
+impl_sub_vector3!(Vector3, &Vector3);
+impl_sub_vector3!(&Vector3, &Vector3);
 
 // Element product
-macro_rules! impl_mul_Vector3 {
+macro_rules! impl_mul_vector3 {
     ($left:ty, $right:ty) => {
         impl ops::Mul<$right> for $left {
             type Output = Vector3;
@@ -86,13 +86,13 @@ macro_rules! impl_mul_Vector3 {
     };
 }
 
-impl_mul_Vector3!(Vector3, Vector3);
-impl_mul_Vector3!(&Vector3, Vector3);
-impl_mul_Vector3!(Vector3, &Vector3);
-impl_mul_Vector3!(&Vector3, &Vector3);
+impl_mul_vector3!(Vector3, Vector3);
+impl_mul_vector3!(&Vector3, Vector3);
+impl_mul_vector3!(Vector3, &Vector3);
+impl_mul_vector3!(&Vector3, &Vector3);
 
 // Element divide
-macro_rules! impl_div_Vector3 {
+macro_rules! impl_div_vector3 {
     ($left:ty, $right:ty) => {
         impl ops::Div<$right> for $left {
             type Output = Vector3;
@@ -104,10 +104,10 @@ macro_rules! impl_div_Vector3 {
     };
 }
 
-impl_div_Vector3!(Vector3, Vector3);
-impl_div_Vector3!(&Vector3, Vector3);
-impl_div_Vector3!(Vector3, &Vector3);
-impl_div_Vector3!(&Vector3, &Vector3);
+impl_div_vector3!(Vector3, Vector3);
+impl_div_vector3!(&Vector3, Vector3);
+impl_div_vector3!(Vector3, &Vector3);
+impl_div_vector3!(&Vector3, &Vector3);
 
 // Scalar multiplication on right
 impl ops::Mul<f32> for Vector3 {
