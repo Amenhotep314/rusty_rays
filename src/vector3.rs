@@ -45,7 +45,7 @@ macro_rules! impl_add_Vector3 {
                 Vector3::new(self.x + other.x, self.y + other.y, self.z + other.z)
             }
         }
-    }
+    };
 }
 
 impl_add_Vector3!(Vector3, Vector3);
@@ -63,7 +63,7 @@ macro_rules! impl_sub_Vector3 {
                 Vector3::new(self.x - other.x, self.y - other.y, self.z - other.z)
             }
         }
-    }
+    };
 }
 
 impl_sub_Vector3!(Vector3, Vector3);
@@ -81,7 +81,7 @@ macro_rules! impl_mul_Vector3 {
                 Vector3::new(self.x * other.x, self.y * other.y, self.z * other.z)
             }
         }
-    }
+    };
 }
 
 impl_mul_Vector3!(Vector3, Vector3);
@@ -99,7 +99,7 @@ macro_rules! impl_div_Vector3 {
                 Vector3::new(self.x / other.x, self.y / other.y, self.z / other.z)
             }
         }
-    }
+    };
 }
 
 impl_div_Vector3!(Vector3, Vector3);
