@@ -148,9 +148,6 @@ impl ops::Div<f32> for Vector3 {
     type Output = Self;
 
     fn div(self, scalar: f32) -> Self::Output {
-        if scalar == 0.0 {
-            panic!("Vector3 division by zero.");
-        }
         Vector3::new(self.x / scalar, self.y / scalar, self.z / scalar)
     }
 }
@@ -159,9 +156,6 @@ impl ops::Div<f32> for &Vector3 {
     type Output = Vector3;
 
     fn div(self, scalar: f32) -> Self::Output {
-        if scalar == 0.0 {
-            panic!("Vector3 division by zero.");
-        }
         Vector3::new(self.x / scalar, self.y / scalar, self.z / scalar)
     }
 }
