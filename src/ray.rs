@@ -35,11 +35,11 @@ pub enum RayResult {
 }
 
 impl RayResult {
-    fn new_hit(target: VisibleObject, point: Vector3) -> Self {
+    pub fn new_hit(target: &VisibleObject, point: Vector3) -> Self {
         RayResult::RayHit { target, point }
     }
 
-    fn new_miss() -> Self {
-        RayResult::RayMiss {}
+    pub fn new_miss() -> Self {
+        RayResult::RayMiss
     }
 }
