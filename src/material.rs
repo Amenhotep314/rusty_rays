@@ -1,3 +1,4 @@
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub struct Material {
     pub color: [f32; 3],
     pub roughness: f32,

@@ -35,7 +35,7 @@ pub enum RayResult {
 }
 
 impl RayResult {
-    pub fn new_hit(target: &VisibleObject, point: Vector3) -> Self {
+    pub fn new_hit(target: VisibleObject, point: Vector3) -> Self {
         RayResult::RayHit { target, point }
     }
 

@@ -2,6 +2,7 @@ use crate::material::Material;
 use crate::ray::{Ray, RayResult};
 use crate::vector3::Vector3;
 
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub enum VisibleObject {
     Sphere {
         position: Vector3,
